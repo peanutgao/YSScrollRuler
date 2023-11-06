@@ -1,0 +1,6 @@
+framework module YSScrollRuler {
+  umbrella header "YSScrollRuler-umbrella.h"
+
+  export *
+  module * { export * }
+}

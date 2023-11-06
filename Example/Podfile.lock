@@ -1,0 +1,16 @@
+PODS:
+  - YSScrollRuler (0.1.0)
+
+DEPENDENCIES:
+  - YSScrollRuler (from `../`)
+
+EXTERNAL SOURCES:
+  YSScrollRuler:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  YSScrollRuler: 999f8ee94401357dbc1fe503e3591e97a7a718c7
+
+PODFILE CHECKSUM: 121670f7aff952f5656b39e5da4f4934be0bc588
+
+COCOAPODS: 1.14.2

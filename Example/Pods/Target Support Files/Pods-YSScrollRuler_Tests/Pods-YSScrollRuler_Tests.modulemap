@@ -1,0 +1,6 @@
+framework module Pods_YSScrollRuler_Tests {
+  umbrella header "Pods-YSScrollRuler_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}
