@@ -148,8 +148,7 @@ private extension YSScrollRulerView {
     }
 
     func calculateScaleCount(by offsetX: CGFloat) -> Int {
-        let v = offsetX / CGFloat(appearance.scaleSpace)
-        return Int(round(offsetX / CGFloat(appearance.scaleSpace)))
+        Int(round(offsetX / CGFloat(appearance.scaleSpace)))
     }
 }
 
@@ -163,10 +162,7 @@ extension YSScrollRulerView: UIScrollViewDelegate {
         let scaleCount = calculateScaleCount(by: scrollView.contentOffset.x)
         let step = _config.step
         let totalValue = CGFloat(scaleCount) * step + minValue
-        print("scrollView.contentOffset.x: \(scrollView.contentOffset.x)")
-        print("scaleCount: \(scaleCount)")
-        print("totalValue: \(totalValue)")
-
+        
         if totalValue >= maxValue {
             currentValue = maxValue
         } else if totalValue <= minValue {
