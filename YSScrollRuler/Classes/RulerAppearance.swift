@@ -14,7 +14,7 @@ public struct RulerAppearance {
     static let appearance = RulerAppearance()
 
     /// 刻度间距是12像素
-    public let scaleSpace = 12
+    public let scaleSpace = 15
     /// 长刻度高度
     public let longScaleHeight = 20
     /// 短刻度高度

@@ -7,21 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B6264954CCC0EE8EB1B67F4EA6F640F /* ScrollRulerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F75682DFDEC41DF04176DFDCF657931E /* ScrollRulerProtocol.swift */; };
 		0EA414BA60C6950FD1FCAE205830DBA3 /* Pods-YSScrollRuler_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E63325ECCACC9F530C602CFF5786774E /* Pods-YSScrollRuler_Example-dummy.m */; };
 		171640633E91D1F56E5BDA32762F579B /* Pods-YSScrollRuler_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 68014E5D70F2ECAC8CCB098501121E57 /* Pods-YSScrollRuler_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DFB0BFD48D9A77903B70172F06046C1 /* YSScrollRuler-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C2F8CA1EB9796FFE25A5EC13F62F46ED /* YSScrollRuler-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		29DA7C88AFAACE32F872F3328C1D1D59 /* RulerAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D23A023AEC3D7C2CAEDC0474D0D697 /* RulerAppearance.swift */; };
+		198ACF9DA3DD371178A6E11B6DAF8E81 /* YSScrollRuler-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F26C4320941E28A36BE13C1911A52B /* YSScrollRuler-dummy.m */; };
+		1DFB0BFD48D9A77903B70172F06046C1 /* YSScrollRuler-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D174F4830158D8CF3A9D89305E5172BF /* YSScrollRuler-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2385D63780EA3806895BC9F4279EC2CC /* ScrollRulerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECEE8F518302395D4157F6C24C957C5 /* ScrollRulerProtocol.swift */; };
 		5E43C0715754F9194A59541F114A17C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
+		810647A1DDAD6AFF12885540F7A48081 /* RulerIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1496228B7C97A3DA487D3AD3719772EB /* RulerIndicatorView.swift */; };
 		8B8974571D07FE8158073DAB83A0AA64 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
-		94863CA0AED30D8E0E9D3C9D23E71048 /* ScrollRulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149879DA8A4A5C495A13D4C547365EAA /* ScrollRulerView.swift */; };
 		95EAF6299DBD4747BEA46AF0A2F2A39D /* Pods-YSScrollRuler_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D7136EDEBA8D60F5C46A807B91A539B /* Pods-YSScrollRuler_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B665603EBFCBC91EAEA0298FCE46F08E /* YSRuler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B254EC6048057FA79701F1563D265C46 /* YSRuler.swift */; };
-		B770FB4F682FE665EA65E32A4A7A2511 /* RulerView+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD10E6D9CE5A58DF60BF069D8A237E /* RulerView+Util.swift */; };
+		9C166D75F20F38CF6C543DDE402461A7 /* YSScrollRulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F19EB72E98A4816DF24E66EB52D1EB5 /* YSScrollRulerView.swift */; };
 		B87236E1A5D770102FEC68D8DC19DD01 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */; };
 		B9EFD0E8D874125D7F15C24003EA9B26 /* Pods-YSScrollRuler_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D78F3ACAA93FAD7CF81ED8F4BEACA310 /* Pods-YSScrollRuler_Tests-dummy.m */; };
-		DEB8A2A4152BE789743884E0D9779B01 /* YSScrollRuler-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D00BBBEC2C595D1A94BAA0CBAF87B4DA /* YSScrollRuler-dummy.m */; };
-		EBE5420957118BF775799F455D010AE6 /* RulerIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F86538A66572B9088BDDD675F016738 /* RulerIndicatorView.swift */; };
+		CC84D061A8D4027C73DF89AD7B830495 /* YSRuler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065D70C8A17F9CAC2F8B1C2D01365388 /* YSRuler.swift */; };
+		D911D34B8FF1C430B2C592D17A177519 /* RulerAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3960496F829EB884ACA606D3951A8F /* RulerAppearance.swift */; };
+		F05BF1FD71C69705CAA850892828E3EB /* RulerView+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105BCE01F769AC840D97970D09230665 /* RulerView+Util.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,42 +42,42 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		065D70C8A17F9CAC2F8B1C2D01365388 /* YSRuler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YSRuler.swift; path = YSScrollRuler/Classes/YSRuler.swift; sourceTree = "<group>"; };
 		0900BB5CB1451A592947B68473AFD1A8 /* Pods-YSScrollRuler_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YSScrollRuler_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		149879DA8A4A5C495A13D4C547365EAA /* ScrollRulerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScrollRulerView.swift; path = YSScrollRuler/Classes/ScrollRulerView.swift; sourceTree = "<group>"; };
-		275C2F48982FE08BF5FDE94F060917B8 /* YSScrollRuler.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = YSScrollRuler.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		37AC6D29EF93B26097BA4C19560B318C /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		0ECEE8F518302395D4157F6C24C957C5 /* ScrollRulerProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScrollRulerProtocol.swift; path = YSScrollRuler/Classes/ScrollRulerProtocol.swift; sourceTree = "<group>"; };
+		105BCE01F769AC840D97970D09230665 /* RulerView+Util.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "RulerView+Util.swift"; path = "YSScrollRuler/Classes/RulerView+Util.swift"; sourceTree = "<group>"; };
+		1496228B7C97A3DA487D3AD3719772EB /* RulerIndicatorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RulerIndicatorView.swift; path = YSScrollRuler/Classes/RulerIndicatorView.swift; sourceTree = "<group>"; };
 		486385F103AC364B527F8EA9DE16B3D7 /* Pods-YSScrollRuler_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YSScrollRuler_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		5D2BBBFD577EFA6B24F395CE9CC875B3 /* YSScrollRuler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YSScrollRuler.release.xcconfig; sourceTree = "<group>"; };
 		5D7136EDEBA8D60F5C46A807B91A539B /* Pods-YSScrollRuler_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YSScrollRuler_Example-umbrella.h"; sourceTree = "<group>"; };
-		5F86538A66572B9088BDDD675F016738 /* RulerIndicatorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RulerIndicatorView.swift; path = YSScrollRuler/Classes/RulerIndicatorView.swift; sourceTree = "<group>"; };
 		6128E00C138998FBF0D0AEDB19891DDC /* Pods-YSScrollRuler_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-YSScrollRuler_Example-frameworks.sh"; sourceTree = "<group>"; };
 		6294FE42B81CC4DA292128B5F4F013AF /* Pods-YSScrollRuler_Tests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-YSScrollRuler_Tests"; path = Pods_YSScrollRuler_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F1E523060A4D240B3F05B129BE8E4B /* Pods-YSScrollRuler_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YSScrollRuler_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		68014E5D70F2ECAC8CCB098501121E57 /* Pods-YSScrollRuler_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-YSScrollRuler_Tests-umbrella.h"; sourceTree = "<group>"; };
-		7146004D169D37AF55171FE57B12D600 /* YSScrollRuler-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "YSScrollRuler-Info.plist"; sourceTree = "<group>"; };
-		723B2F8D1A9B31B544E882237678BEDA /* YSScrollRuler.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = YSScrollRuler.modulemap; sourceTree = "<group>"; };
-		72A315C3FF857611623160E90D9F044D /* YSScrollRuler-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YSScrollRuler-prefix.pch"; sourceTree = "<group>"; };
+		72957A01964A0D3FF128D9331A333F8D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		73010CC983E3809BECEE5348DA1BB8C6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		7EAD10E6D9CE5A58DF60BF069D8A237E /* RulerView+Util.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "RulerView+Util.swift"; path = "YSScrollRuler/Classes/RulerView+Util.swift"; sourceTree = "<group>"; };
-		7FD2D0007F4CABEFF803D14E6DAF6EA7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		7C6322B8B826BC06CC62E26C41DA8056 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		8C3960496F829EB884ACA606D3951A8F /* RulerAppearance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RulerAppearance.swift; path = YSScrollRuler/Classes/RulerAppearance.swift; sourceTree = "<group>"; };
+		8F19EB72E98A4816DF24E66EB52D1EB5 /* YSScrollRulerView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YSScrollRulerView.swift; path = YSScrollRuler/Classes/YSScrollRulerView.swift; sourceTree = "<group>"; };
+		93FC6C5BB45494C55F3015E668E2D1E2 /* YSScrollRuler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YSScrollRuler.debug.xcconfig; sourceTree = "<group>"; };
+		969C7078F677D3CFA53F31B9A6D64804 /* YSScrollRuler-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "YSScrollRuler-Info.plist"; sourceTree = "<group>"; };
 		9A796D4437FB72549B1C4FCC6B60C099 /* Pods-YSScrollRuler_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YSScrollRuler_Example-Info.plist"; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		AEC77E000F1BC3D7E00A796D0D923BB3 /* Pods-YSScrollRuler_Tests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YSScrollRuler_Tests-Info.plist"; sourceTree = "<group>"; };
 		B0D94DA24F4675BA5F05CDD9C5D70711 /* Pods-YSScrollRuler_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-YSScrollRuler_Example.modulemap"; sourceTree = "<group>"; };
 		B1772580796ABC48EFFBFE4FBC3EE956 /* Pods-YSScrollRuler_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YSScrollRuler_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		B254EC6048057FA79701F1563D265C46 /* YSRuler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = YSRuler.swift; path = YSScrollRuler/Classes/YSRuler.swift; sourceTree = "<group>"; };
 		BA61CAFA7E9809787C9628180979EBFF /* YSScrollRuler */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = YSScrollRuler; path = YSScrollRuler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD0687076CE00D63ACDB1AD47F7AF6EB /* YSScrollRuler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YSScrollRuler.debug.xcconfig; sourceTree = "<group>"; };
 		BD65E4CF0968054D032C5BC316FA1472 /* Pods-YSScrollRuler_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YSScrollRuler_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		C2F8CA1EB9796FFE25A5EC13F62F46ED /* YSScrollRuler-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YSScrollRuler-umbrella.h"; sourceTree = "<group>"; };
+		C9565BA9DA7E276018AC86A142AFBB60 /* YSScrollRuler.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = YSScrollRuler.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C9F26C4320941E28A36BE13C1911A52B /* YSScrollRuler-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YSScrollRuler-dummy.m"; sourceTree = "<group>"; };
 		CD8DCF27E15E0A946805A18234190DF8 /* Pods-YSScrollRuler_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-YSScrollRuler_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		CED6FD751EC965344046C4A60A3C4B58 /* Pods-YSScrollRuler_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-YSScrollRuler_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		D00BBBEC2C595D1A94BAA0CBAF87B4DA /* YSScrollRuler-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "YSScrollRuler-dummy.m"; sourceTree = "<group>"; };
+		D174F4830158D8CF3A9D89305E5172BF /* YSScrollRuler-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YSScrollRuler-umbrella.h"; sourceTree = "<group>"; };
+		D580B2E807AF09F91BECC29A8EF39D3F /* YSScrollRuler-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "YSScrollRuler-prefix.pch"; sourceTree = "<group>"; };
 		D78F3ACAA93FAD7CF81ED8F4BEACA310 /* Pods-YSScrollRuler_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YSScrollRuler_Tests-dummy.m"; sourceTree = "<group>"; };
 		D7C6C2104B0D34BE0E4BFCE0D41A678F /* Pods-YSScrollRuler_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-YSScrollRuler_Example.release.xcconfig"; sourceTree = "<group>"; };
-		D9D23A023AEC3D7C2CAEDC0474D0D697 /* RulerAppearance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RulerAppearance.swift; path = YSScrollRuler/Classes/RulerAppearance.swift; sourceTree = "<group>"; };
-		DC95AEF184146919D09A56D96AA87FA8 /* YSScrollRuler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = YSScrollRuler.release.xcconfig; sourceTree = "<group>"; };
 		E63325ECCACC9F530C602CFF5786774E /* Pods-YSScrollRuler_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-YSScrollRuler_Example-dummy.m"; sourceTree = "<group>"; };
-		F75682DFDEC41DF04176DFDCF657931E /* ScrollRulerProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ScrollRulerProtocol.swift; path = YSScrollRuler/Classes/ScrollRulerProtocol.swift; sourceTree = "<group>"; };
+		ED65206C72FA8B4D76B5886E3BBF70C7 /* YSScrollRuler.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = YSScrollRuler.modulemap; sourceTree = "<group>"; };
 		F8AFCB583093479487F5EAA3AEA265B7 /* Pods-YSScrollRuler_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-YSScrollRuler_Example"; path = Pods_YSScrollRuler_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEDC18EB36B70DDED9295AC316B603E4 /* Pods-YSScrollRuler_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-YSScrollRuler_Tests.modulemap"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,20 +110,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		062C5AFE6AF746A9511EAB8282BC5622 /* YSScrollRuler */ = {
+		39CA784BA440CEC02879918C05BA93D3 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				D9D23A023AEC3D7C2CAEDC0474D0D697 /* RulerAppearance.swift */,
-				5F86538A66572B9088BDDD675F016738 /* RulerIndicatorView.swift */,
-				7EAD10E6D9CE5A58DF60BF069D8A237E /* RulerView+Util.swift */,
-				F75682DFDEC41DF04176DFDCF657931E /* ScrollRulerProtocol.swift */,
-				149879DA8A4A5C495A13D4C547365EAA /* ScrollRulerView.swift */,
-				B254EC6048057FA79701F1563D265C46 /* YSRuler.swift */,
-				9F28691F57B8050B7E5F3BE1FE68C788 /* Pod */,
-				8749932D6CDB4A355EB6FBA85550BAB7 /* Support Files */,
+				ED65206C72FA8B4D76B5886E3BBF70C7 /* YSScrollRuler.modulemap */,
+				C9F26C4320941E28A36BE13C1911A52B /* YSScrollRuler-dummy.m */,
+				969C7078F677D3CFA53F31B9A6D64804 /* YSScrollRuler-Info.plist */,
+				D580B2E807AF09F91BECC29A8EF39D3F /* YSScrollRuler-prefix.pch */,
+				D174F4830158D8CF3A9D89305E5172BF /* YSScrollRuler-umbrella.h */,
+				93FC6C5BB45494C55F3015E668E2D1E2 /* YSScrollRuler.debug.xcconfig */,
+				5D2BBBFD577EFA6B24F395CE9CC875B3 /* YSScrollRuler.release.xcconfig */,
 			);
-			name = YSScrollRuler;
-			path = ../..;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/YSScrollRuler";
 			sourceTree = "<group>";
 		};
 		578452D2E740E91742655AC8F1636D1F /* iOS */ = {
@@ -137,7 +136,7 @@
 		5CAC3BE913D71955B22FACF17E2E4E03 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				062C5AFE6AF746A9511EAB8282BC5622 /* YSScrollRuler */,
+				BF8246E20577AF418085060CB97730A6 /* YSScrollRuler */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -159,21 +158,6 @@
 			path = "Target Support Files/Pods-YSScrollRuler_Example";
 			sourceTree = "<group>";
 		};
-		8749932D6CDB4A355EB6FBA85550BAB7 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				723B2F8D1A9B31B544E882237678BEDA /* YSScrollRuler.modulemap */,
-				D00BBBEC2C595D1A94BAA0CBAF87B4DA /* YSScrollRuler-dummy.m */,
-				7146004D169D37AF55171FE57B12D600 /* YSScrollRuler-Info.plist */,
-				72A315C3FF857611623160E90D9F044D /* YSScrollRuler-prefix.pch */,
-				C2F8CA1EB9796FFE25A5EC13F62F46ED /* YSScrollRuler-umbrella.h */,
-				BD0687076CE00D63ACDB1AD47F7AF6EB /* YSScrollRuler.debug.xcconfig */,
-				DC95AEF184146919D09A56D96AA87FA8 /* YSScrollRuler.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/YSScrollRuler";
-			sourceTree = "<group>";
-		};
 		9D183D0633ED9240D9E568D9D0463C99 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,12 +167,12 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		9F28691F57B8050B7E5F3BE1FE68C788 /* Pod */ = {
+		A6B1D3B8827D632774F30CA74C3368D9 /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				7FD2D0007F4CABEFF803D14E6DAF6EA7 /* LICENSE */,
-				37AC6D29EF93B26097BA4C19560B318C /* README.md */,
-				275C2F48982FE08BF5FDE94F060917B8 /* YSScrollRuler.podspec */,
+				7C6322B8B826BC06CC62E26C41DA8056 /* LICENSE */,
+				72957A01964A0D3FF128D9331A333F8D /* README.md */,
+				C9565BA9DA7E276018AC86A142AFBB60 /* YSScrollRuler.podspec */,
 			);
 			name = Pod;
 			sourceTree = "<group>";
@@ -207,6 +191,22 @@
 			);
 			name = "Pods-YSScrollRuler_Tests";
 			path = "Target Support Files/Pods-YSScrollRuler_Tests";
+			sourceTree = "<group>";
+		};
+		BF8246E20577AF418085060CB97730A6 /* YSScrollRuler */ = {
+			isa = PBXGroup;
+			children = (
+				8C3960496F829EB884ACA606D3951A8F /* RulerAppearance.swift */,
+				1496228B7C97A3DA487D3AD3719772EB /* RulerIndicatorView.swift */,
+				105BCE01F769AC840D97970D09230665 /* RulerView+Util.swift */,
+				0ECEE8F518302395D4157F6C24C957C5 /* ScrollRulerProtocol.swift */,
+				065D70C8A17F9CAC2F8B1C2D01365388 /* YSRuler.swift */,
+				8F19EB72E98A4816DF24E66EB52D1EB5 /* YSScrollRulerView.swift */,
+				A6B1D3B8827D632774F30CA74C3368D9 /* Pod */,
+				39CA784BA440CEC02879918C05BA93D3 /* Support Files */,
+			);
+			name = YSScrollRuler;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		C1C85357873BD32097FB60EBF532981C /* Products */ = {
@@ -273,7 +273,7 @@
 			buildConfigurationList = 5704389ECD1A77DA0399A613B6754229 /* Build configuration list for PBXNativeTarget "YSScrollRuler" */;
 			buildPhases = (
 				F02443B051679B291AB263447F12BE45 /* Headers */,
-				F6DC59978633621C90F494891AEB4196 /* Sources */,
+				22AB967FD74BDA2EA41AE55E53407887 /* Sources */,
 				E4573853AEECFF57C9E476499558074B /* Frameworks */,
 				983D785748C88CC49C8B6D5D5CCD4F20 /* Resources */,
 			);
@@ -386,25 +386,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		22AB967FD74BDA2EA41AE55E53407887 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D911D34B8FF1C430B2C592D17A177519 /* RulerAppearance.swift in Sources */,
+				810647A1DDAD6AFF12885540F7A48081 /* RulerIndicatorView.swift in Sources */,
+				F05BF1FD71C69705CAA850892828E3EB /* RulerView+Util.swift in Sources */,
+				2385D63780EA3806895BC9F4279EC2CC /* ScrollRulerProtocol.swift in Sources */,
+				CC84D061A8D4027C73DF89AD7B830495 /* YSRuler.swift in Sources */,
+				198ACF9DA3DD371178A6E11B6DAF8E81 /* YSScrollRuler-dummy.m in Sources */,
+				9C166D75F20F38CF6C543DDE402461A7 /* YSScrollRulerView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2DDFB95F1E91CF72B552274CFC211513 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B9EFD0E8D874125D7F15C24003EA9B26 /* Pods-YSScrollRuler_Tests-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F6DC59978633621C90F494891AEB4196 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				29DA7C88AFAACE32F872F3328C1D1D59 /* RulerAppearance.swift in Sources */,
-				EBE5420957118BF775799F455D010AE6 /* RulerIndicatorView.swift in Sources */,
-				B770FB4F682FE665EA65E32A4A7A2511 /* RulerView+Util.swift in Sources */,
-				0B6264954CCC0EE8EB1B67F4EA6F640F /* ScrollRulerProtocol.swift in Sources */,
-				94863CA0AED30D8E0E9D3C9D23E71048 /* ScrollRulerView.swift in Sources */,
-				B665603EBFCBC91EAEA0298FCE46F08E /* YSRuler.swift in Sources */,
-				DEB8A2A4152BE789743884E0D9779B01 /* YSScrollRuler-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -668,7 +668,7 @@
 		};
 		B83198F51FDBAAB07DEC999FF8362CB6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD0687076CE00D63ACDB1AD47F7AF6EB /* YSScrollRuler.debug.xcconfig */;
+			baseConfigurationReference = 93FC6C5BB45494C55F3015E668E2D1E2 /* YSScrollRuler.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -741,7 +741,7 @@
 		};
 		CFEDE68DFAAB6B540FEA74274A49846C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DC95AEF184146919D09A56D96AA87FA8 /* YSScrollRuler.release.xcconfig */;
+			baseConfigurationReference = 5D2BBBFD577EFA6B24F395CE9CC875B3 /* YSScrollRuler.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
