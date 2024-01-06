@@ -10,32 +10,38 @@
 
 import UIKit
 
-class YSRuler: UIView, RulerViewUtilProtocol {
-    struct Info: ScrollRulerProtocol {
-        var padding: CGFloat
-        var minValue: CGFloat
-        var maxValue: CGFloat
-        var step: CGFloat
-        var dividerCount: Int
-        var unit: String?
+// MARK: - YSRuler
 
-        init(
-                padding: CGFloat,
-                minValue: CGFloat,
-                maxValue: CGFloat,
-                step: CGFloat,
-                dividerCount: Int,
-                unit: String? = nil) {
+class YSRuler: UIView, RulerViewUtilProtocol {
+    public struct Info: ScrollRulerProtocol {
+        public var padding: CGFloat
+        public var minValue: CGFloat
+        public var maxValue: CGFloat
+        public var step: CGFloat
+        public var dividerCount: Int
+        public var unit: String?
+        public var textVisual = true
+
+        public init(
+            padding: CGFloat,
+            minValue: CGFloat,
+            maxValue: CGFloat,
+            step: CGFloat,
+            dividerCount: Int,
+            unit: String? = nil,
+            textVisual: Bool = true
+        ) {
             self.padding = padding
             self.minValue = minValue
             self.maxValue = maxValue
             self.step = step
             self.dividerCount = dividerCount
             self.unit = unit
+            self.textVisual = textVisual
         }
     }
 
-    var rulerInfo: Info? {
+    public var rulerInfo: Info? {
         didSet {
             setNeedsDisplay()
         }
@@ -49,18 +55,20 @@ class YSRuler: UIView, RulerViewUtilProtocol {
         backgroundColor = .clear
     }
 
-    required init?(coder: NSCoder) {
+    @available(*, unavailable)
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func draw(_ rect: CGRect) {
-        layer.sublayers?.forEach({ $0.removeFromSuperlayer() })
+    override func draw(_: CGRect) {
+        layer.sublayers?.forEach { $0.removeFromSuperlayer() }
         drawHorizontalLine()
         drawScale()
     }
+}
 
-    // 画长线
-    private func drawHorizontalLine() {
+private extension YSRuler {
+    func drawHorizontalLine() {
         let path = UIBezierPath()
         path.lineWidth = appearance.horizontalLineHeight
         path.lineCapStyle = .butt
@@ -70,11 +78,10 @@ class YSRuler: UIView, RulerViewUtilProtocol {
         path.addLine(to: CGPoint(x: frame.size.width, y: horizontalLineY))
         path.close()
 
-        layer.addSublayer(shaperLayer(of: path))
+        layer.addSublayer(shaperLayer(of: path, with: appearance.horizontalLineColor))
     }
 
-    // 刻度
-    private func drawScale() {
+    func drawScale() {
         guard let rulerInfo else {
             return
         }
@@ -84,16 +91,21 @@ class YSRuler: UIView, RulerViewUtilProtocol {
         path.lineCapStyle = .butt
         path.lineJoinStyle = .round
 
+        guard rulerInfo.maxValue > rulerInfo.minValue else {
+            return
+        }
         let totalDividerCount = Int(ceil((rulerInfo.maxValue - rulerInfo.minValue) / rulerInfo.step))
-        for idx in 0...totalDividerCount {
+        for idx in 0 ... totalDividerCount {
             let x = CGFloat(rulerInfo.padding + CGFloat(appearance.scaleSpace * idx))
             path.move(to: CGPoint(x: x, y: rulerHeight - appearance.horizontalLineHeight))
 
             var h = appearance.shortScaleHeight
             let value = rulerInfo.minValue + CGFloat(idx) * rulerInfo.step
-            if value.truncatingRemainder(dividingBy: (rulerInfo.step * CGFloat(rulerInfo.dividerCount))) == 0 {
+            if value.truncatingRemainder(dividingBy: rulerInfo.step * CGFloat(rulerInfo.dividerCount)) == 0 {
                 h = appearance.longScaleHeight
-                drawDividingTextAtIndex(idx)  // draw text
+                if rulerInfo.textVisual == true {
+                    drawDividingTextAtIndex(idx) // draw text
+                }
             }
 
             let y = rulerHeight - CGFloat(h) - appearance.horizontalLineHeight
@@ -101,34 +113,34 @@ class YSRuler: UIView, RulerViewUtilProtocol {
         }
         path.close()
 
-        layer.addSublayer(shaperLayer(of: path))
+        layer.addSublayer(shaperLayer(of: path, with: appearance.scaleColor))
     }
 
-    private func drawDividingTextAtIndex(_ index: Int) {
+    func drawDividingTextAtIndex(_ index: Int) {
         guard let rulerInfo else {
             return
         }
 
         let num = ceil(CGFloat(index) * rulerInfo.step + rulerInfo.minValue)
-        let text = String(format: "%.1f%@", num, rulerInfo.unit ?? "")
+        let text = String(format: "%zd%@", Int(num), rulerInfo.unit ?? "")
         let attribute: [NSAttributedString.Key: Any] = [
             .font: RulerAppearance.appearance.scaleTextFont,
-            .foregroundColor: appearance.scaleColor
+            .foregroundColor: appearance.scaleColor,
         ]
         let textSize = boundingRect(of: text, attributes: attribute)
         let lineCenterX = CGFloat(appearance.scaleSpace)
         let x = ceil(rulerInfo.padding + lineCenterX * CGFloat(index) - textSize.width / 2)
         let y = rulerHeight - CGFloat(appearance.longScaleHeight) - appearance.horizontalLineHeight - textSize.height
         text.draw(
-                in: CGRect(x: x, y: y, width: textSize.width, height: textSize.height),
-                withAttributes: attribute
+            in: CGRect(x: x, y: y, width: textSize.width, height: textSize.height),
+            withAttributes: attribute
         )
     }
 
-    private func shaperLayer(of path: UIBezierPath) -> CAShapeLayer {
+    func shaperLayer(of path: UIBezierPath, with color: UIColor) -> CAShapeLayer {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
-        shapeLayer.strokeColor = appearance.scaleColor.cgColor
+        shapeLayer.strokeColor = color.cgColor
         shapeLayer.lineWidth = appearance.horizontalLineHeight
         return shapeLayer
     }
