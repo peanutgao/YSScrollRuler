@@ -73,6 +73,7 @@ class ViewController: UIViewController {
 // MARK: YSScrollRulerViewDelegate
 
 extension ViewController: YSScrollRulerViewDelegate {
-    func scrollRulerView(rulerView _: YSScrollRulerView, valueDidiChanged _: CGFloat) {}
-    func scrollRulerView(rulerView _: YSScrollRulerView, valueDidEndChanged _: CGFloat) {}
+    func scrollRulerView(rulerView: YSScrollRulerView, valueCanChange value: CGFloat) -> Bool{true}
+    func scrollRulerView(rulerView: YSScrollRulerView, valueDidChanged value: CGFloat){}
+    func scrollRulerView(rulerView: YSScrollRulerView, valueDidEndChanged value: CGFloat) {}
 }

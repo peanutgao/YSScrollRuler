@@ -94,17 +94,21 @@ private extension YSRuler {
         guard rulerInfo.maxValue > rulerInfo.minValue else {
             return
         }
-        let totalDividerCount = Int(ceil((rulerInfo.maxValue - rulerInfo.minValue) / rulerInfo.step))
+
+        let minValue = rulerInfo.minValue
+        let totalDividerCount = Int(ceil((rulerInfo.maxValue - minValue) / rulerInfo.step))
+        let longSpaceValue = rulerInfo.step * CGFloat(rulerInfo.dividerCount)
         for idx in 0 ... totalDividerCount {
             let x = CGFloat(rulerInfo.padding + CGFloat(appearance.scaleSpace * idx))
             path.move(to: CGPoint(x: x, y: rulerHeight - appearance.horizontalLineHeight))
 
             var h = appearance.shortScaleHeight
-            let value = rulerInfo.minValue + CGFloat(idx) * rulerInfo.step
-            if value.truncatingRemainder(dividingBy: rulerInfo.step * CGFloat(rulerInfo.dividerCount)) == 0 {
+            let value = minValue + CGFloat(idx) * rulerInfo.step
+            if value.truncatingRemainder(dividingBy: longSpaceValue) == 0 {
                 h = appearance.longScaleHeight
+                // draw text
                 if rulerInfo.textVisual == true {
-                    drawDividingTextAtIndex(idx) // draw text
+                    drawDividingTextAtIndex(idx, minValue: minValue)
                 }
             }
 
@@ -116,12 +120,12 @@ private extension YSRuler {
         layer.addSublayer(shaperLayer(of: path, with: appearance.scaleColor))
     }
 
-    func drawDividingTextAtIndex(_ index: Int) {
+    func drawDividingTextAtIndex(_ index: Int, minValue: CGFloat) {
         guard let rulerInfo else {
             return
         }
 
-        let num = ceil(CGFloat(index) * rulerInfo.step + rulerInfo.minValue)
+        let num = ceil(CGFloat(index) * rulerInfo.step + minValue)
         let text = String(format: "%zd%@", Int(num), rulerInfo.unit ?? "")
         let attribute: [NSAttributedString.Key: Any] = [
             .font: RulerAppearance.appearance.scaleTextFont,
