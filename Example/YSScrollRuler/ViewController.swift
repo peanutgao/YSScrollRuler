@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         var rulerView = YSScrollRulerView(
             frame: CGRect(x: 5, y: 100, width: view.bounds.size.width - 20, height: height)){ appearance in
                 appearance.textVisual = false
+                appearance.indicatorColor = .green
             }
         rulerView.backgroundColor = .white
         rulerView.delegate = self
