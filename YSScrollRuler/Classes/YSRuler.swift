@@ -12,33 +12,15 @@ import UIKit
 
 // MARK: - YSRuler
 
-class YSRuler: UIView, RulerViewUtilProtocol {
+public class YSRuler: UIView, RulerViewUtilProtocol {
     public struct Info: ScrollRulerProtocol {
-        public var padding: CGFloat
+        
         public var minValue: CGFloat
         public var maxValue: CGFloat
         public var step: CGFloat
         public var dividerCount: Int
         public var unit: String?
-        public var textVisual = true
-
-        public init(
-            padding: CGFloat,
-            minValue: CGFloat,
-            maxValue: CGFloat,
-            step: CGFloat,
-            dividerCount: Int,
-            unit: String? = nil,
-            textVisual: Bool = true
-        ) {
-            self.padding = padding
-            self.minValue = minValue
-            self.maxValue = maxValue
-            self.step = step
-            self.dividerCount = dividerCount
-            self.unit = unit
-            self.textVisual = textVisual
-        }
+        public var textVisual = false
     }
 
     public var rulerInfo: Info? {
@@ -60,7 +42,7 @@ class YSRuler: UIView, RulerViewUtilProtocol {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func draw(_: CGRect) {
+    public override func draw(_: CGRect) {
         layer.sublayers?.forEach { $0.removeFromSuperlayer() }
         drawHorizontalLine()
         drawScale()
@@ -78,7 +60,7 @@ private extension YSRuler {
         path.addLine(to: CGPoint(x: frame.size.width, y: horizontalLineY))
         path.close()
 
-        layer.addSublayer(shaperLayer(of: path, with: appearance.horizontalLineColor))
+        layer.addSublayer(shaperLayer(of: path, with: appearance.horizontalLineColor, lineWidth: appearance.horizontalLineHeight))
     }
 
     func drawScale() {
@@ -87,7 +69,7 @@ private extension YSRuler {
         }
 
         let path = UIBezierPath()
-        path.lineWidth = appearance.horizontalLineHeight
+        path.lineWidth = appearance.scaleWidth
         path.lineCapStyle = .butt
         path.lineJoinStyle = .round
 
@@ -99,7 +81,7 @@ private extension YSRuler {
         let totalDividerCount = Int(ceil((rulerInfo.maxValue - minValue) / rulerInfo.step))
         let longSpaceValue = rulerInfo.step * CGFloat(rulerInfo.dividerCount)
         for idx in 0 ... totalDividerCount {
-            let x = CGFloat(rulerInfo.padding + CGFloat(appearance.scaleSpace * idx))
+            let x = appearance.padding + CGFloat(appearance.scaleSpace * idx)
             path.move(to: CGPoint(x: x, y: rulerHeight - appearance.horizontalLineHeight))
 
             var h = appearance.shortScaleHeight
@@ -117,7 +99,7 @@ private extension YSRuler {
         }
         path.close()
 
-        layer.addSublayer(shaperLayer(of: path, with: appearance.scaleColor))
+        layer.addSublayer(shaperLayer(of: path, with: appearance.scaleColor, lineWidth: appearance.scaleWidth))
     }
 
     func drawDividingTextAtIndex(_ index: Int, minValue: CGFloat) {
@@ -133,7 +115,7 @@ private extension YSRuler {
         ]
         let textSize = boundingRect(of: text, attributes: attribute)
         let lineCenterX = CGFloat(appearance.scaleSpace)
-        let x = ceil(rulerInfo.padding + lineCenterX * CGFloat(index) - textSize.width / 2)
+        let x = ceil(appearance.padding + lineCenterX * CGFloat(index) - textSize.width / 2)
         let y = rulerHeight - CGFloat(appearance.longScaleHeight) - appearance.horizontalLineHeight - textSize.height
         text.draw(
             in: CGRect(x: x, y: y, width: textSize.width, height: textSize.height),
@@ -141,11 +123,11 @@ private extension YSRuler {
         )
     }
 
-    func shaperLayer(of path: UIBezierPath, with color: UIColor) -> CAShapeLayer {
+    func shaperLayer(of path: UIBezierPath, with color: UIColor, lineWidth: CGFloat) -> CAShapeLayer {
         let shapeLayer = CAShapeLayer()
         shapeLayer.path = path.cgPath
         shapeLayer.strokeColor = color.cgColor
-        shapeLayer.lineWidth = appearance.horizontalLineHeight
+        shapeLayer.lineWidth = lineWidth
         return shapeLayer
     }
 }

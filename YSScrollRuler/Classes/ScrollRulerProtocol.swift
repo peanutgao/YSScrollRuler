@@ -13,10 +13,7 @@ import Foundation
 protocol ScrollRulerProtocol {
     var minValue: CGFloat { get set }
     var maxValue: CGFloat { get set }
-    /// 间隔值，每两条的间隔值
     var step: CGFloat { get set }
-    /// 间隔个数，每两条相隔多少个
     var dividerCount: Int { get set }
-    /// 显示的单位
     var unit: String? { get set }
 }
