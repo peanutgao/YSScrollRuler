@@ -27,6 +27,7 @@ public class YSScrollRulerView: UIView {
         public var step: CGFloat
         public var dividerCount: Int
         public var unit: String?
+
         public var defaultValue: CGFloat
         public var isScrollEnabled = true
 
@@ -36,8 +37,7 @@ public class YSScrollRulerView: UIView {
             defaultValue: CGFloat? = nil,
             step: CGFloat,
             dividerCount: Int,
-            unit: String? = nil,
-            textVisual: Bool = false
+            unit: String? = nil
         ) {
             self.minValue = minValue
             self.maxValue = maxValue
@@ -48,7 +48,7 @@ public class YSScrollRulerView: UIView {
         }
     }
 
-    public var appearance = RulerAppearance.appearance
+    public var appearance = RulerAppearance()
     public var config: YSScrollRulerView.Config? {
         didSet {
             guard let config else {
@@ -79,8 +79,7 @@ public class YSScrollRulerView: UIView {
         maxValue: 0,
         step: 10,
         dividerCount: 0,
-        unit: nil,
-        textVisual: false
+        unit: nil
     )
 
     public weak var delegate: YSScrollRulerViewDelegate?
@@ -167,6 +166,8 @@ public extension YSScrollRulerView {
             dividerCount: _config.dividerCount,
             unit: _config.unit
         )
+        rulerView.appearance = appearance
+        
         rulerView.layoutIfNeeded()
 
         currentValue = _config.defaultValue

@@ -14,37 +14,19 @@ import YSScrollRuler
 class ViewController: UIViewController {
     lazy var rulerView: YSScrollRulerView = { [unowned self] in
         let height: CGFloat = 200
-        let unitStr = "¥"
         var rulerView = YSScrollRulerView(
-            frame: CGRect(x: 5, y: 100, width: view.bounds.size.width - 20, height: height),
-            config: .init(
-                minValue: 0,
-                maxValue: 1000,
-                step: 10, // 间隔值，每两条的间隔值
-                dividerCount: 10,
-                unit: unitStr,
-                textVisual: false
-            )
-        )
-        rulerView.setValue(0, animated: true)
+            frame: CGRect(x: 5, y: 100, width: view.bounds.size.width - 20, height: height)){ appearance in
+                appearance.textVisual = false
+            }
         rulerView.backgroundColor = .white
         rulerView.delegate = self
         return rulerView
     }()
 
     lazy var rulerView_layout: YSScrollRulerView = { [unowned self] in
-        let unitStr = "¥"
-        let rulerView = YSScrollRulerView(
-            frame: .zero,
-            config: .init(
-                minValue: 0,
-                maxValue: 1000,
-                step: 10, // 间隔值，每两条的间隔值
-                dividerCount: 10,
-                unit: unitStr
-            )
-        )
-        rulerView.setValue(500, animated: true)
+        let rulerView = YSScrollRulerView(frame: .zero) { appearance in
+            appearance.textVisual = true
+        }
         rulerView.backgroundColor = .white
         rulerView.delegate = self
         rulerView.translatesAutoresizingMaskIntoConstraints = false
@@ -57,6 +39,13 @@ class ViewController: UIViewController {
 
         view.backgroundColor = .lightGray
 
+        rulerView.config = .init(
+            minValue: 0,
+            maxValue: 1000,
+            step: 10,
+            dividerCount: 10,
+            unit: "¥"
+        )
         view.addSubview(rulerView)
 
         // ---
@@ -67,6 +56,16 @@ class ViewController: UIViewController {
             rulerView_layout.topAnchor.constraint(equalTo: rulerView.bottomAnchor, constant: 20),
             rulerView_layout.heightAnchor.constraint(equalToConstant: 200),
         ])
+        
+        rulerView_layout.config = .init(
+            minValue: 0,
+            maxValue: 1000,
+            step: 10,
+            dividerCount: 10,
+            unit: "¥"
+        )
+        rulerView.setValue(500, animated: true)
+
     }
 }
 
@@ -74,6 +73,10 @@ class ViewController: UIViewController {
 
 extension ViewController: YSScrollRulerViewDelegate {
     func scrollRulerView(rulerView: YSScrollRulerView, valueCanChange value: CGFloat) -> Bool{true}
-    func scrollRulerView(rulerView: YSScrollRulerView, valueDidChanged value: CGFloat){}
-    func scrollRulerView(rulerView: YSScrollRulerView, valueDidEndChanged value: CGFloat) {}
+    func scrollRulerView(rulerView: YSScrollRulerView, valueDidChanged value: CGFloat){
+        print(value)
+    }
+    func scrollRulerView(rulerView: YSScrollRulerView, valueDidEndChanged value: CGFloat) {
+        print(value)
+    }
 }

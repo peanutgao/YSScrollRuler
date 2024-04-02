@@ -14,13 +14,11 @@ import UIKit
 
 public class YSRuler: UIView, RulerViewUtilProtocol {
     public struct Info: ScrollRulerProtocol {
-        
         public var minValue: CGFloat
         public var maxValue: CGFloat
         public var step: CGFloat
         public var dividerCount: Int
         public var unit: String?
-        public var textVisual = false
     }
 
     public var rulerInfo: Info? {
@@ -29,7 +27,7 @@ public class YSRuler: UIView, RulerViewUtilProtocol {
         }
     }
 
-    private let appearance = RulerAppearance.appearance
+    public var appearance = RulerAppearance()
     private lazy var rulerHeight: CGFloat = frame.size.height
 
     override init(frame: CGRect) {
@@ -89,7 +87,7 @@ private extension YSRuler {
             if value.truncatingRemainder(dividingBy: longSpaceValue) == 0 {
                 h = appearance.longScaleHeight
                 // draw text
-                if rulerInfo.textVisual == true {
+                if appearance.textVisual {
                     drawDividingTextAtIndex(idx, minValue: minValue)
                 }
             }
@@ -110,7 +108,7 @@ private extension YSRuler {
         let num = ceil(CGFloat(index) * rulerInfo.step + minValue)
         let text = String(format: "%zd%@", Int(num), rulerInfo.unit ?? "")
         let attribute: [NSAttributedString.Key: Any] = [
-            .font: RulerAppearance.appearance.scaleTextFont,
+            .font: appearance.scaleTextFont,
             .foregroundColor: appearance.scaleColor,
         ]
         let textSize = boundingRect(of: text, attributes: attribute)

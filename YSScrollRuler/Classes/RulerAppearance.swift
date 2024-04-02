@@ -11,8 +11,6 @@
 import UIKit
 
 public class RulerAppearance {
-    public static let appearance = RulerAppearance()
-
     public var padding: CGFloat = 0.0
     public var textVisual = false
     public var scaleSpace = 15
