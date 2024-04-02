@@ -45,7 +45,7 @@
 		8176ADE121A828A0B8E3E3F7 /* Pods-YSScrollRuler_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YSScrollRuler_Example.debug.xcconfig"; path = "Target Support Files/Pods-YSScrollRuler_Example/Pods-YSScrollRuler_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		929866626C424A53C2FCD16E /* Pods_YSScrollRuler_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YSScrollRuler_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40F98C76474AD5903856A4A /* Pods-YSScrollRuler_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YSScrollRuler_Example.release.xcconfig"; path = "Target Support Files/Pods-YSScrollRuler_Example/Pods-YSScrollRuler_Example.release.xcconfig"; sourceTree = "<group>"; };
-		DBF25D79F510505D48B3C735 /* YSScrollRuler.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YSScrollRuler.podspec; path = ../YSScrollRuler.podspec; sourceTree = "<group>"; };
+		DBF25D79F510505D48B3C735 /* YSScrollRuler.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = YSScrollRuler.podspec; path = ../YSScrollRuler.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FE1ACCA540EC05B3E5277C08 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
