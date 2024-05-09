@@ -1,8 +1,8 @@
 {
   "name": "YSScrollRuler",
   "version": "0.1.0",
-  "summary": "尺子视图.",
-  "description": "swift开发的尺子视图",
+  "summary": "scroll ruler view.",
+  "description": "A scroll Ruler view commonly used in the financial industry.",
   "homepage": "https://github.com/Joseph Koh/YSScrollRuler",
   "license": {
     "type": "MIT",
@@ -12,7 +12,7 @@
     "Joseph Koh": "peanutgao@hotmail.com"
   },
   "source": {
-    "git": "https://github.com/Joseph Koh/YSScrollRuler.git",
+    "git": "https://github.com/peanutgao/YSScrollRuler.git",
     "tag": "0.1.0"
   },
   "platforms": {

@@ -79,7 +79,7 @@ private extension YSRuler {
         let totalDividerCount = Int(ceil((rulerInfo.maxValue - minValue) / rulerInfo.step))
         let longSpaceValue = rulerInfo.step * CGFloat(rulerInfo.dividerCount)
         for idx in 0 ... totalDividerCount {
-            let x = appearance.padding + CGFloat(appearance.scaleSpace * idx)
+            let x = appearance.padding + CGFloat(appearance.scaleSpace * CGFloat(idx))
             path.move(to: CGPoint(x: x, y: rulerHeight - appearance.horizontalLineHeight))
 
             var h = appearance.shortScaleHeight

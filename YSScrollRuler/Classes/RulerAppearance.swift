@@ -13,9 +13,9 @@ import UIKit
 public class RulerAppearance {
     public var padding: CGFloat = 0.0
     public var textVisual = false
-    public var scaleSpace = 15
-    public var longScaleHeight = 15
-    public var shortScaleHeight = 10
+    public var scaleSpace: CGFloat = 15.0
+    public var longScaleHeight: CGFloat = 15.0
+    public var shortScaleHeight: CGFloat = 10.0
     public var scaleWidth: CGFloat = 2.0
     public var horizontalLineHeight: CGFloat = 1.0
 

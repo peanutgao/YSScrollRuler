@@ -27,7 +27,6 @@ public class YSScrollRulerView: UIView {
         public var step: CGFloat
         public var dividerCount: Int
         public var unit: String?
-
         public var defaultValue: CGFloat
         public var isScrollEnabled = true
 
@@ -49,161 +48,106 @@ public class YSScrollRulerView: UIView {
     }
 
     public var appearance = RulerAppearance()
-    public var config: YSScrollRulerView.Config? {
+    public var config: Config? {
         didSet {
-            guard let config else {
-                return
-            }
-
-            fixedMinValue = config.minValue
-
-            if isNeedFexMinValue {
-                let leftValue = (bounds.size.width * 0.5 / CGFloat(appearance.scaleSpace)) * config.step
-                let adjustLeftValue = adjustValue(Int(leftValue), divisibleBy: Int(config.step))
-                fixedMinValue -= CGFloat(adjustLeftValue)
-            }
-
-            _config = Config(
-                minValue: CGFloat(fixedMinValue),
-                maxValue: config.maxValue,
-                defaultValue: config.defaultValue,
-                step: config.step,
-                dividerCount: config.dividerCount,
-                unit: config.unit
-            )
+            guard let config = config else { return }
+            _config = config
+            reload()
         }
     }
 
-    private var _config: YSScrollRulerView.Config = Config(
-        minValue: 0,
-        maxValue: 0,
-        step: 10,
-        dividerCount: 0,
-        unit: nil
-    )
+    private var _config: Config!
 
     public weak var delegate: YSScrollRulerViewDelegate?
     public private(set) var currentValue: CGFloat = 0
-    public private(set) var preValue: CGFloat = 0
-    /// Set whether the minimum value should be displayed to the left of the scale when the minimum value is dragged
-    /// to the center.
-    public var isNeedFexMinValue = true
 
-    private var fixedMinValue: CGFloat = 0
-    private var fixValue: CGFloat = 0
-    public let rulerView = YSRuler()
-    public let indicatorView = RulerIndicatorView()
-
+    private let rulerView = YSRuler()
+    private let indicatorView = RulerIndicatorView()
     private lazy var scrollView: UIScrollView = {
         let sv = UIScrollView(frame: .zero)
         sv.bounces = true
-        sv.backgroundColor = UIColor.clear
+        sv.backgroundColor = .clear
         sv.delegate = self
         return sv
     }()
 
-    public init(
-        frame: CGRect = .zero,
-        config: Config = .init(
-            minValue: 0,
-            maxValue: 0,
-            step: 10,
-            dividerCount: 5
-        ),
-        appearanceConfig: ((RulerAppearance) -> Void)? = nil
-    ) {
+    public init(frame: CGRect = .zero, config: Config, appearanceConfig: ((RulerAppearance) -> Void)? = nil) {
         super.init(frame: frame)
         self.config = config
-
-        backgroundColor = UIColor.white
+        backgroundColor = .white
         appearanceConfig?(appearance)
-
-        currentValue = config.defaultValue
-
-        scrollView.isScrollEnabled = config.isScrollEnabled
-        addSubview(scrollView)
-        scrollView.addSubview(rulerView)
-
-        indicatorView.indicatorColor = appearance.indicatorColor
-        indicatorView.triangleWidth = appearance.triangleWidth
-        addSubview(indicatorView)
-    }
-
-    override public func layoutSubviews() {
-        super.layoutSubviews()
-
-        scrollView.frame = bounds
-
-        indicatorView.center = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
-        indicatorView.bounds = CGRect(x: 0, y: 0, width: appearance.triangleWidth, height: appearance.indicatorHeight)
-        reload()
+        setupViews()
     }
 
     @available(*, unavailable)
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-}
 
-public extension YSScrollRulerView {
-    func reload() {
-        guard _config.step != 0 else {
-            return
-        }
-        let width = ((_config.maxValue - fixedMinValue) / _config.step) * CGFloat(appearance.scaleSpace)
+    private func setupViews() {
+        addSubview(scrollView)
+        scrollView.addSubview(rulerView)
+        addSubview(indicatorView)
+        applyAppearance()
+    }
+
+    private func applyAppearance() {
+        indicatorView.indicatorColor = appearance.indicatorColor
+        indicatorView.triangleWidth = appearance.triangleWidth
+        scrollView.isScrollEnabled = _config?.isScrollEnabled ?? true
+    }
+
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        layoutScrollView()
+        layoutIndicatorView()
+        reload()
+    }
+
+    private func layoutScrollView() {
+        scrollView.frame = bounds
+    }
+
+    private func layoutIndicatorView() {
+        indicatorView.center = CGPoint(x: bounds.midX, y: bounds.midY)
+        indicatorView.bounds = CGRect(x: 0, y: 0, width: appearance.triangleWidth, height: appearance.indicatorHeight)
+    }
+
+    public func reload() {
+        guard let _config = _config, _config.step != 0 else { return }
+        configureRulerView()
+        setCurrentValue(_config.defaultValue, animated: false)
+    }
+
+    private func configureRulerView() {
+        let width = ((_config.maxValue - _config.minValue) / _config.step) * CGFloat(appearance.scaleSpace)
         scrollView.contentSize = CGSize(width: width, height: appearance.rulerHeight)
-
         rulerView.frame = CGRect(
             x: 0,
-            y: (bounds.size.height - appearance.rulerHeight) * 0.5 + appearance.rulerOffsetY,
-            width: CGFloat.maximum(scrollView.bounds.size.width, width),
+            y: (bounds.height - appearance.rulerHeight) * 0.5 + appearance.rulerOffsetY,
+            width: max(scrollView.bounds.width, width),
             height: appearance.rulerHeight
         )
         rulerView.rulerInfo = .init(
-            minValue: fixedMinValue,
+            minValue: _config.minValue,
             maxValue: _config.maxValue,
             step: _config.step,
             dividerCount: _config.dividerCount,
             unit: _config.unit
         )
         rulerView.appearance = appearance
-        
-        rulerView.layoutIfNeeded()
-
-        currentValue = _config.defaultValue
-        preValue = currentValue
-        setValue(_config.defaultValue, animated: false)
     }
 
-    func setValue(_ value: CGFloat, animated: Bool) {
-        let offsetX = ((value - fixedMinValue) / _config.step) * CGFloat(appearance.scaleSpace)
-        var fixed = offsetX
-        if _config.step != 0 {
-            fixed -= ((fixValue / _config.step) * CGFloat(appearance.scaleSpace))
+    public func setCurrentValue(_ value: CGFloat, animated: Bool) {
+        guard _config != nil, value >= _config.minValue, value <= _config.maxValue else {
+            return
         }
+        let offsetX = ((value - _config.minValue) / _config.step) * CGFloat(appearance.scaleSpace)
         scrollView.setContentOffset(CGPoint(x: offsetX, y: 0), animated: animated)
     }
-}
 
-private extension YSScrollRulerView {
-    @objc func offsetView(by offsetX: CGFloat, animated: Bool) {
-        let scaleCount = calculateScaleCount(by: offsetX)
-        var fixed = CGFloat(scaleCount * appearance.scaleSpace)
-        if _config.step != 0 {
-            fixed -= ((fixValue / _config.step) * CGFloat(appearance.scaleSpace))
-        }
-        scrollView.setContentOffset(CGPoint(x: fixed, y: 0), animated: animated)
-    }
-
-    func calculateScaleCount(by offsetX: CGFloat) -> Int {
-        Int(round(offsetX / CGFloat(appearance.scaleSpace)))
-    }
-
-    func calculateOffsetX(by value: CGFloat?) -> CGFloat {
-        guard let value, value >= fixedMinValue else {
-            return 0.0
-        }
-        return (value - fixedMinValue) / CGFloat(_config.step) * CGFloat(appearance.scaleSpace)
+    public func setCurrentValue(_ value: Int, animated: Bool) {
+        setCurrentValue(CGFloat(value), animated: animated)
     }
 }
 
@@ -211,51 +155,36 @@ private extension YSScrollRulerView {
 
 extension YSScrollRulerView: UIScrollViewDelegate {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let minValue = fixedMinValue
-        let maxValue = _config.maxValue
-        let scaleCount = calculateScaleCount(by: scrollView.contentOffset.x)
-        let step = _config.step
-        let totalValue = CGFloat(scaleCount) * step + minValue
+        let offset = scrollView.contentOffset.x
+        let value = calculateValue(fromOffset: offset)
 
-        if totalValue >= maxValue {
-            currentValue = maxValue
-        } else if totalValue <= minValue {
-            currentValue = minValue
-        } else {
-            currentValue = CGFloat(scaleCount) * step + minValue
+        guard delegate?.scrollRulerView(rulerView: self, valueCanChange: value) ?? true else {
+            setCurrentValue(currentValue, animated: false)
+            return
         }
 
-        let b = delegate?.scrollRulerView(rulerView: self, valueCanChange: currentValue) ?? true
-        if b == false {
-            setValue(preValue, animated: false)
-            currentValue = preValue
-        } else {
-            preValue = currentValue
-        }
-
+        currentValue = value
         delegate?.scrollRulerView(rulerView: self, valueDidChanged: currentValue)
     }
 
-    public func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    public func scrollViewDidEndDragging(_: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
-            offsetView(by: scrollView.contentOffset.x, animated: true)
-            delegate?.scrollRulerView(rulerView: self, valueDidEndChanged: currentValue)
+            finalizeScrolling()
         }
     }
 
-    public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        offsetView(by: scrollView.contentOffset.x, animated: true)
+    public func scrollViewDidEndDecelerating(_: UIScrollView) {
+        finalizeScrolling()
+    }
+
+    private func finalizeScrolling() {
+        setCurrentValue(currentValue, animated: true)
         delegate?.scrollRulerView(rulerView: self, valueDidEndChanged: currentValue)
     }
 
-    func adjustValue(_ value: Int, divisibleBy divisor: Int) -> Int {
-        if value % divisor == 0 {
-            return value
-        } else {
-            let remainder = value % divisor
-            let fix = divisor - remainder
-            fixValue = CGFloat(fix)
-            return value + fix
-        }
+    private func calculateValue(fromOffset offset: CGFloat) -> CGFloat {
+        let scaleCount = Int(round(offset / CGFloat(appearance.scaleSpace)))
+        let value = CGFloat(scaleCount) * _config.step + _config.minValue
+        return min(max(value, _config.minValue), _config.maxValue)
     }
 }
