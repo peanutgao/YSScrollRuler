@@ -19,6 +19,7 @@ public class YSRuler: UIView, RulerViewUtilProtocol {
         public var step: CGFloat
         public var dividerCount: Int
         public var unit: String?
+        public var leftOffset: CGFloat = 0
     }
 
     public var rulerInfo: Info? {
@@ -40,7 +41,7 @@ public class YSRuler: UIView, RulerViewUtilProtocol {
         fatalError("init(coder:) has not been implemented")
     }
 
-    public override func draw(_: CGRect) {
+    override public func draw(_: CGRect) {
         layer.sublayers?.forEach { $0.removeFromSuperlayer() }
         drawHorizontalLine()
         drawScale()
@@ -58,7 +59,11 @@ private extension YSRuler {
         path.addLine(to: CGPoint(x: frame.size.width, y: horizontalLineY))
         path.close()
 
-        layer.addSublayer(shaperLayer(of: path, with: appearance.horizontalLineColor, lineWidth: appearance.horizontalLineHeight))
+        layer.addSublayer(shaperLayer(
+            of: path,
+            with: appearance.horizontalLineColor,
+            lineWidth: appearance.horizontalLineHeight
+        ))
     }
 
     func drawScale() {
@@ -79,7 +84,7 @@ private extension YSRuler {
         let totalDividerCount = Int(ceil((rulerInfo.maxValue - minValue) / rulerInfo.step))
         let longSpaceValue = rulerInfo.step * CGFloat(rulerInfo.dividerCount)
         for idx in 0 ... totalDividerCount {
-            let x = appearance.padding + CGFloat(appearance.scaleSpace * CGFloat(idx))
+            let x = rulerInfo.leftOffset + CGFloat(appearance.scaleSpace * CGFloat(idx))
             path.move(to: CGPoint(x: x, y: rulerHeight - appearance.horizontalLineHeight))
 
             var h = appearance.shortScaleHeight
@@ -113,7 +118,7 @@ private extension YSRuler {
         ]
         let textSize = boundingRect(of: text, attributes: attribute)
         let lineCenterX = CGFloat(appearance.scaleSpace)
-        let x = ceil(appearance.padding + lineCenterX * CGFloat(index) - textSize.width / 2)
+        let x = ceil(rulerInfo.leftOffset + lineCenterX * CGFloat(index) - textSize.width / 2)
         let y = rulerHeight - CGFloat(appearance.longScaleHeight) - appearance.horizontalLineHeight - textSize.height
         text.draw(
             in: CGRect(x: x, y: y, width: textSize.width, height: textSize.height),
