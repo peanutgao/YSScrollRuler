@@ -27,3 +27,16 @@ extension RulerViewUtilProtocol where Self: UIView {
         return CGSizeMake(ceil(size.width), ceil(size.height))
     }
 }
+
+
+func printLog(_ items: Any..., separator: String = " ", file: String = #file, line: Int = #line) {
+    if #available(iOS 15.0, *) {
+#if DEBUG
+        let fileName = (file as NSString).lastPathComponent
+        let timestamp = Date().formatted(date: .numeric, time: .standard)
+        print("[\(timestamp)] [\(fileName):\(line)] \(items[0])")
+#endif
+    } else {
+        // Fallback on earlier versions
+    }
+}

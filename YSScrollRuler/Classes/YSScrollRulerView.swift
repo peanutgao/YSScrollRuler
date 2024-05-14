@@ -43,7 +43,7 @@ public class YSScrollRulerView: UIView {
             step: CGFloat,
             dividerCount: Int,
             unit: String? = nil,
-            indicatorPosition: IndicatorPosition = .leading
+            indicatorPosition: IndicatorPosition = .center
         ) {
             self.minValue = minValue
             self.maxValue = maxValue
@@ -182,7 +182,7 @@ extension YSScrollRulerView: UIScrollViewDelegate {
         let offset = scrollView.contentOffset.x
         let value = calculateValue(fromOffset: offset)
 
-        debugPrint("\(offset) - \(value)")
+        printLog("\(offset) - \(value)")
         guard delegate?.scrollRulerView(rulerView: self, valueCanChange: value) ?? true else {
             setCurrentValue(currentValue, animated: false)
             return

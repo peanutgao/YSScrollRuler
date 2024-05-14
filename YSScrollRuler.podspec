@@ -32,9 +32,9 @@ Pod::Spec.new do |s|
 
   s.source_files = 'YSScrollRuler/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'YSScrollRuler' => ['YSScrollRuler/Assets/*.png']
-  # }
+   s.resource_bundles = {
+     'YSScrollRuler' => ['YSScrollRuler/PrivacyInfo.xcprivacy']
+   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
